@@ -22,7 +22,7 @@ public class Menu {
     }
 
     public static void setbackground(){
-        background = new JLabel(new ImageIcon("src/image/result.png"));
+        background = new JLabel(new ImageIcon("src/resource/image/menubg.png"));
 
         background.setBounds(0, 0, PageController.win.getWidth(), PageController.win.getHeight());
         PageController.win.add(background);
@@ -30,22 +30,22 @@ public class Menu {
     }
 
     public static void setbutton(){
-        b1=new JLabel(new ImageIcon("src/image/button.png"));
+        b1=new JLabel(new ImageIcon("src/resource/image/button.png"));
         b1.setBounds(900, 150, 150, 150);
         PageController.win.add(b1);
         PageController.win.repaint();
 
-        b2=new JLabel(new ImageIcon("src/image/button.png"));
+        b2=new JLabel(new ImageIcon("src/resource/image/button.png"));
         b2.setBounds(900, 300, 150, 100);
         PageController.win.add(b2);
         PageController.win.repaint();
 
-        b3=new JLabel(new ImageIcon("src/image/button.png"));
+        b3=new JLabel(new ImageIcon("src/resource/image/button.png"));
         b3.setBounds(900, 450, 150, 100);
         PageController.win.add(b3);
         PageController.win.repaint();
 
-        b4=new JLabel(new ImageIcon("src/image/button.png"));
+        b4=new JLabel(new ImageIcon("src/resource/image/button.png"));
         b4.setBounds(900, 600, 150, 100);
         PageController.win.add(b4);
         PageController.win.repaint();
