@@ -9,7 +9,7 @@ public class GameRes {
     /**@fields perfectIcon ：perfect字样组件*/
     public static JLabel pecfectIcon = new JLabel(new ImageIcon());
 /**@fields goodIcon : good 字样组件*/
-public static JLabel goodIcon = new JLabel(new ImageIcon());
+public static JLabel goodIcon = new JLrabel(new ImageIcon());
 
 /**@fields missIcon : miss 字样组件*/
 public static JLabel missIcon = new JLabel(new ImageIcon());
