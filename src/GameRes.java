@@ -8,11 +8,11 @@ public class GameRes {
     //郭西达测试
     //perfect组件
     public static JLabel pecfectIcon = new JLabel(new ImageIcon());
-//good组件
-public static JLabel goodIcon = new JLrabel(new ImageIcon());
-//miss 组件
-public static JLabel missIcon = new JLabel(new ImageIcon());
-//rail : 轨道图片组件
+    //good组件
+    public static JLabel goodIcon = new JLabel(new ImageIcon());
+    //miss 组件
+    public static JLabel missIcon = new JLabel(new ImageIcon());
+    //rail : 轨道图片组件
     static JLabel rail =new JLabel(new ImageIcon());
     // background : 背景图片组件
     static JLabel background = new JLabel(new ImageIcon());
