@@ -9,7 +9,7 @@ public class Select {
     InGame inGame = new InGame();
 
     /*生成一个背景图片*/
-    JLabel b = new JLabel(new ImageIcon("src/image/select.png"));
+    JLabel b = new JLabel(new ImageIcon("src/resource/image/select.png"));
 
     /*页面加载*/
     public void selectInit() {
