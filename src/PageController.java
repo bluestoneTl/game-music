@@ -23,7 +23,7 @@ public class PageController {
 
 
 
-    //   Select select = new Select();
+    Select select = new Select();
 
     static Setting setting = new Setting();
 
@@ -42,14 +42,14 @@ public class PageController {
     public void run() {
 
 
-        //      Menu.setfoundation();
+        Menu.setfoundation();
         Menu.setbutton();
         Menu.setbackground();
         Menu.addfunction();
-        //  Menu.moveimage();
+        Menu.moveimage();
 
 
-          /*  if (page == 1) {
+        if (page == 1) {
                 select.selectInit();
 
             }
@@ -60,8 +60,6 @@ public class PageController {
             if (page == 3) {
                 help.helpInit();
 
-            }*/
-        //   }
+            }
     }
-
 }
