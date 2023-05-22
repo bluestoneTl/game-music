@@ -12,6 +12,9 @@ public class PageController {
 
     public static int page = 0;
 
+    public static boolean ret =false;
+
+
     public static int keyCode1 = KeyEvent.VK_F;
     public static int keyCode2 = KeyEvent.VK_G;
     public static int keyCode3 = KeyEvent.VK_H;

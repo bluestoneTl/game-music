@@ -16,4 +16,4 @@ public class Note extends JLabel{
     }
 
 }
-}
+
