@@ -93,6 +93,7 @@ public class Setting {
     }
 
     class SoundListrner1 implements   MouseListener{
+        @Override
         public void mouseClicked(MouseEvent e) {
             if(volume<1.0f) {
                 volume+=0.1f;
@@ -118,6 +119,7 @@ public class Setting {
     }
 
     class SoundListrner2 implements   MouseListener{
+        @Override
         public void mouseClicked(MouseEvent e) {
             if(volume>0.0f) {
                 volume-=0.1f;
