@@ -1,5 +1,6 @@
 import javax.swing.*;
 
+
 @SuppressWarnings("serial")
 public class Cover extends JLabel{
     /* 封面图片对象 */

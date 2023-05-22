@@ -3,6 +3,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
+
 public class Select {
     /*生成一个 Ingame 对象*/
     InGame inGame = new InGame();

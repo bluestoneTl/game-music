@@ -1,5 +1,6 @@
 import javax.swing.*;
 
+
 public class Result {
     /* 结束界面图片加载 */
     static JLabel result = new JLabel(new ImageIcon("src/image/result.png"));
