@@ -6,10 +6,11 @@ import javax.swing.*;
 
 public class Help {
 
+
     JLabel h = new JLabel(new ImageIcon("src/resource/image/help.png"));
 
 
-    JLabel bt = new JLabel();
+   public static JLabel bt = new JLabel();
 
 
     ReturnListener returnListener = new ReturnListener();
@@ -21,13 +22,15 @@ public class Help {
 
         bt.setVisible(false);
         bt.addMouseListener(returnListener);
+        bt=new JLabel(new ImageIcon("src/resource/image/button.png"));
+        PageController.win.repaint();
         PageController.win.add(bt);
         bt.setBounds(1057, 530, 184, 68);
         bt.setVisible(true);
 
         h.setVisible(false);
         PageController.win.add(h);
-        h.setBounds(0, 0, 1280, 800);
+        h.setBounds(0, 0, 640, 800);
         h.setVisible(true);
 
     }
