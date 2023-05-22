@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import javax.swing.*;
 import java.awt.*;
@@ -48,7 +49,6 @@ public class Menu {
         PageController.win.repaint();
 
     }
-
 
     public static void addfunction(){
         b1.addMouseListener(new
