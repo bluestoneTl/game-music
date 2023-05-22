@@ -1,6 +1,3 @@
-
-
-
 import javax.swing.*;
 import javax.swing.*;
 import java.awt.*;
@@ -78,7 +75,7 @@ public class Menu {
 
                                         @Override public void mouseClicked(MouseEvent e) {
                                             PageController.win.getContentPane().removeAll();
-                                            PageController. setting.setInit();
+                                            PageController.setting.setInit();
                                             PageController.win.getContentPane().repaint();
 
                                         }
