@@ -52,14 +52,7 @@ public class InGame {
 
 
 
-    /** 
-    * @Title: inGameInit 
-    * @Description: 设置文件路径
-    * @param @param audioFilePath 音频文件
-    * @param @param scoreFilePath 文本文件
-    * @return void  
-    * @throws 
-    */
+
     public void inGameInit(String audioFilePath, String scoreFilePath) {
         noteIndex = 0;
         next = 0;
@@ -88,13 +81,7 @@ public class InGame {
         }
     }
 
-    /** 
-    * @Title: start 
-    * @Description: 加载资源，开始播放音乐、绘制图像
-    * @param  
-    * @return void  
-    * @throws 
-    */
+
     public void start() {
         PageController.win.addKeyListener(hitListener);
         Thread music = new Thread() {
@@ -111,13 +98,7 @@ public class InGame {
         timer.scheduleAtFixedRate(new Drop(), 0, 10);// 第三个参数为画面刷新间隔，以毫秒为单位
     }
 
-    /** 
-    * @ClassName: Drop 
-    * @Description: 定时器执行的任务，逐帧绘制
-    * @author Zhang Yuxuan
-    * @date 2019年6月5日 下午6:38:06 
-    *  
-    */
+
     class Drop extends TimerTask {
         /*
         * Title: run
@@ -342,13 +323,7 @@ public class InGame {
         }
     }
 
-    /** 
-    * @ClassName: HitListener 
-    * @Description: 键盘监听器
-    * @author Zhang Yuxuan
-    * @date 2019年6月5日 下午6:40:39 
-    *  
-    */
+
     class HitListener implements KeyListener {
 
         @Override
@@ -454,13 +429,7 @@ public class InGame {
 
     }
     
-    /** 
-    * @ClassName: ReturnListener 
-    * @Description: 鼠标监视器
-    * @author Zhang Yuxuan
-    * @date 2019年6月8日 下午8:17:27 
-    *  
-    */
+
     class ReturnListener implements MouseListener {
 
         /*
