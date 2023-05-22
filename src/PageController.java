@@ -16,9 +16,9 @@ public class PageController {
     /*生成一个 select 对象*/
     static Select select=new Select();
     /*生成一个 setting 对象*/
-    Setting setting=new Setting();
+    static Setting setting=new Setting();
     /*生成一个help对象*/
-    Help help=new Help();
+    static Help help=new Help();
     /*默认构造函数*/
     public PageController() {
         win.setSize(1280, 835);
