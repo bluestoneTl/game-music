@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class ComboFigue {
+public class ComboFigure {
     //得分计数功能类
     //0-9的数字资源
      static ImageIcon[] figureIcons = { new ImageIcon("src/image/fig0.png"),
@@ -68,6 +68,3 @@ public class ComboFigue {
         comboFigure100[0].setVisible(true);
     }
 }
-    
-    
-
