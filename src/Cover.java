@@ -13,8 +13,8 @@ public class Cover extends JLabel{
     @SuppressWarnings("serial")
     public Cover(String name) {
         coverPic = new ImageIcon("src/resource/cover/" + name + ".png");
-        audioFilePath = "src/mp3/" + name + ".mp3";
-        scoreFilePath = "src/txt/" + name + ".txt";
+        audioFilePath = "src/resource/music/" + name + ".mp3";
+        scoreFilePath = "src/resource/txt/" + name + ".txt";
         this.setIcon(coverPic);
         this.setSize(150, 150);
         this.setVisible(false);
