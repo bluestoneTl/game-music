@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Note extends JLabel{
     //音符类
 //图片资源
-    static ImageIcon noteIcon = new ImageIcon("src/image/note.png");
+    static ImageIcon noteIcon = new ImageIcon("src/resource/image/note.png");
    //定义横坐标
     public int x;
     //定义纵坐标

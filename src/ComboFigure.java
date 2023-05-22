@@ -3,16 +3,16 @@ import javax.swing.*;
 public class ComboFigure {
     //得分计数功能类
     //0-9的数字资源
-     static ImageIcon[] figureIcons = { new ImageIcon("src/image/fig0.png"),
-            new ImageIcon("src/image/fig1.png"),
-            new ImageIcon("src/image/fig2.png"),
-            new ImageIcon("src/image/fig3.png"),
-            new ImageIcon("src/image/fig4.png"),
-            new ImageIcon("src/image/fig5.png"),
-            new ImageIcon("src/image/fig6.png"),
-            new ImageIcon("src/image/fig7.png"),
-            new ImageIcon("src/image/fig8.png"), 
-            new ImageIcon("src/image/fig9.png") };
+     static ImageIcon[] figureIcons = { new ImageIcon("src/resource/image/fig0.png"),
+            new ImageIcon("src/resource/image/fig1.png"),
+            new ImageIcon("src/resource/image/fig2.png"),
+            new ImageIcon("src/resource/image/fig3.png"),
+            new ImageIcon("src/resource/image/fig4.png"),
+            new ImageIcon("src/resource/image/fig5.png"),
+            new ImageIcon("src/resource/image/fig6.png"),
+            new ImageIcon("src/resource/image/fig7.png"),
+            new ImageIcon("src/resource/image/fig8.png"),
+            new ImageIcon("src/resource/image/fig9.png") };
    
     //计数个位的数字
     public static JLabel[] comboFigure1 = { new JLabel(figureIcons[0]),
