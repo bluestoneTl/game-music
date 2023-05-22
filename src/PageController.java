@@ -40,8 +40,6 @@ public class PageController {
 
 
     public void run() {
-
-
         Menu.setfoundation();
         Menu.setbutton();
         Menu.setbackground();
