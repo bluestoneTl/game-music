@@ -42,7 +42,7 @@ public class InGame {
     HitListener hitListener = new HitListener();        // hitListener : 监视器
     ReturnListener returnListener = new ReturnListener();       // returnListener : 监视器
     
-    // 
+    //
     Result result = new Result();       // result : 结果类
 
 
