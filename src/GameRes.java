@@ -6,42 +6,29 @@ import java.net.*;
 public class GameRes {
     //资源加载模块
     //郭西达测试
-    /**@fields perfectIcon ：perfect字样组件*/
+    //perfect组件
     public static JLabel pecfectIcon = new JLabel(new ImageIcon());
-/**@fields goodIcon : good 字样组件*/
+//good组件
 public static JLabel goodIcon = new JLrabel(new ImageIcon());
-
-/**@fields missIcon : miss 字样组件*/
+//miss 组件
 public static JLabel missIcon = new JLabel(new ImageIcon());
-/**@fields rail : 轨道图片组件*/
+//rail : 轨道图片组件
     static JLabel rail =new JLabel(new ImageIcon());
-
-    /**@fields background : 背景图片组件*/
+    // background : 背景图片组件
     static JLabel background = new JLabel(new ImageIcon());
-    /**
-     * @Fields perfectSound : perfect音效，用数组避免间隔过短无法完全播放
-     */
-    @SuppressWarnings("deprecation")
+     //perfectSound : perfect音效，用数组避免间隔过短无法完全播放
     public static AudioClip[] perfectSound = new AudioClip[3];
-    /**
-     * @Fields goodSound : good音效，用数组避免间隔过短无法完全播放
-     */
-    @SuppressWarnings("deprecation")
+   // goodSound : good音效，用数组避免间隔过短无法完全播放
     public static AudioClip[] goodSound = new AudioClip[3];
-
-    /**
-     * @Fields resultbgm : 结算页面bgm
-     */
-    @SuppressWarnings("deprecation")
+    //结算界面bgm
     public static AudioClip resultbgm;
-    /**
-     * @Title: load
-     * @Description: 向主窗口中添加相应图片资源、加载音效文件以开始游戏
-     * @param @param notes 需要添加的note
-     * @return void
-     * @throws
-     */
-    @SuppressWarnings("deprecation")
+   
+     //Title: load
+     //Description: 向主窗口中添加相应图片资源、加载音效文件以开始游戏
+     //param @param notes 需要添加的note
+     //return void
+     //throw
+   
     public static void load(Note[] notes) {
         try {
             URL pecfectUrl = new File("").toURI().toURL();
