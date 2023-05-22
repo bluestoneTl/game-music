@@ -3,7 +3,7 @@ import javax.swing.*;
 
 public class Result {
     /* 结束界面图片加载 */
-    static JLabel result = new JLabel(new ImageIcon("src/image/result.png"));
+    static JLabel result = new JLabel(new ImageIcon("src/resource/image/result.png"));
     /* 建一个成员函数 */
     public void resultPage(int perfect, int good, int miss, int maxCombo) {
         PageController.win.getContentPane().removeAll();
