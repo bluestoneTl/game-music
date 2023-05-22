@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Help {
 
-    JLabel h = new JLabel(new ImageIcon("src/image/help.png"));
+    JLabel h = new JLabel(new ImageIcon("src/resource/image/help.png"));
 
 
     JLabel bt = new JLabel();
