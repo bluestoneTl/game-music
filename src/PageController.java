@@ -23,7 +23,7 @@ public class PageController {
 
 
 
-    Select select = new Select();
+    static Select select = new Select();
 
     static Setting setting = new Setting();
 

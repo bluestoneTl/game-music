@@ -61,6 +61,7 @@ public class Menu {
                                             PageController.win.getContentPane().removeAll();
                                             PageController.win.getContentPane().repaint();
 
+                                            PageController.select.selectInit();
                                         }
 
                                         @Override public void mouseEntered(MouseEvent e) {

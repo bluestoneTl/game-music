@@ -58,7 +58,7 @@ public class GameRes {
         goodIcon.setBounds(950, 300, 300, 75);
         missIcon.setBounds(950, 300, 300, 75);
 
-        ComboFigue.addFigure();
+        ComboFigure.addFigure();
 
         rail.setVisible(false);
         background.setVisible(false);
