@@ -13,14 +13,14 @@ public class Setting {
     private int volume_level=2;
     private float volume; // 当前音量
 
-    JLabel sbt1= new JLabel(new ImageIcon("src/image/button.png"));
-    JLabel sbt2= new JLabel(new ImageIcon("src/image/button.png"));
+    JLabel sbt1= new JLabel(new ImageIcon("src/resource/image/button.png"));
+    JLabel sbt2= new JLabel(new ImageIcon("src/resource/image/button.png"));
 
 
 
-    JLabel set = new JLabel(new ImageIcon("src/image/settings.png"));
+    JLabel set = new JLabel(new ImageIcon("src/resource/image/settings.png"));
 
-    JLabel bt = new JLabel(new ImageIcon("src/image/bt.png"));
+    JLabel bt = new JLabel(new ImageIcon("src/resource/image/bt.png"));
 
 
     JLabel k1 = new JLabel("" + (char) PageController.keyCode1, JLabel.CENTER);
