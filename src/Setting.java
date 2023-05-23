@@ -188,17 +188,11 @@ public class Setting {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            //   PageController.ret = true;
-            PageController.win.getContentPane().removeAll();
-            PageController.win.getContentPane().repaint();
-            Menu.setbutton();
-            Menu.setbackground();
-            Menu.addfunction();
-
+            PageController.ret = true;//返回主页面
             PageController.win.removeKeyListener(hitListener);
-            bt.removeMouseListener(returnListener);
-            sbt1.removeMouseListener(soundListener1);
-            sbt2.removeMouseListener(soundListener2);
+            bt.removeMouseListener(returnListener);//移除返回按钮监听器
+            sbt1.removeMouseListener(soundListener1);//移除音量+按钮监听器
+            sbt2.removeMouseListener(soundListener2);//移除音量-按钮监听器
 
         }
 

@@ -41,13 +41,8 @@ public class Help {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            PageController.ret = true;
             bt.removeMouseListener(returnListener);
-            PageController.win.getContentPane().removeAll();
-            PageController.win.getContentPane().repaint();
-            Menu.setbutton();
-            Menu.setbackground();
-            Menu.addfunction();
-
         }
 
         @Override
