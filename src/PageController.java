@@ -29,24 +29,47 @@ public class PageController {
     }
 
     public void run() {
-        Menu.setfoundation();
-        Menu.setbutton();
-        Menu.setbackground();
-        Menu.addfunction();
-        Menu.moveimage();
-
-
-        if (page == 1) {
-            select.selectInit();
-
-        }
-        if (page == 2) {
-            setting.setInit();
-
-        }
-        if (page == 3) {
-            help.helpInit();
-
+        while (true) {
+            page = 0;
+            ret = false;
+            Menu.setfoundation();
+            Menu.setbutton();
+            Menu.setbackground();
+            Menu.addfunction();
+            Menu.moveimage();
+            while (true) {
+                if (page != 0) {
+                    break;
+                }
+                System.out.print(""); //问题，只有加了这个才正常执行
+            }
+            if (page == 1) {
+                select.selectInit();
+                while (true) {
+                    System.out.print("");
+                    if (ret) {
+                        break;
+                    }
+                }
+            }
+            if (page == 2) {
+                setting.setInit();
+                while (true) {
+                    System.out.print("");
+                    if (ret) {
+                        break;
+                    }
+                }
+            }
+            if (page == 3) {
+                help.helpInit();
+                while (true) {
+                    System.out.print("");
+                    if (ret) {
+                        break;
+                    }
+                }
+            }
         }
     }
 

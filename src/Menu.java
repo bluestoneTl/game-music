@@ -15,10 +15,9 @@ public class Menu {
     public static JLabel b3;
     public static JLabel b4;
     public static void setfoundation(){
-
-
+        PageController.win.getContentPane().removeAll();
+        PageController.win.getContentPane().repaint();
     }
-
     public static void setbackground(){
         background = new JLabel(new ImageIcon("src/resource/image/menubg.png"));
 
@@ -56,10 +55,9 @@ public class Menu {
 
                                         @Override public void mouseClicked(MouseEvent e) {
                                             PageController.win.getContentPane().removeAll();
-
-
-                                            PageController.select.selectInit();
                                             PageController.win.getContentPane().repaint();
+                                            /*修复，配合pagecontroller实现页面切换*/
+                                            PageController.page=1;  //1表示select界面
                                         }
 
                                         @Override public void mouseEntered(MouseEvent e) {
@@ -75,9 +73,8 @@ public class Menu {
 
                                         @Override public void mouseClicked(MouseEvent e) {
                                             PageController.win.getContentPane().removeAll();
-                                            PageController.setting.setInit();
                                             PageController.win.getContentPane().repaint();
-
+                                            PageController.page=2;   //setting界面
                                         }
 
                                         @Override public void mouseEntered(MouseEvent e) {
@@ -93,9 +90,8 @@ public class Menu {
 
                                         @Override public void mouseClicked(MouseEvent e) {
                                             PageController.win.getContentPane().removeAll();
-                                            PageController. help.helpInit();
                                             PageController.win.getContentPane().repaint();
-
+                                            PageController.page=3;    //help界面
                                         }
 
                                         @Override public void mouseEntered(MouseEvent e) {
@@ -111,7 +107,6 @@ public class Menu {
 
                                         @Override public void mouseClicked(MouseEvent e) {
                                             System.exit(0);
-
                                         }
 
                                         @Override public void mouseEntered(MouseEvent e) {
