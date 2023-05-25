@@ -2,7 +2,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.Timer;
 import java.util.TimerTask;
-import javazoom.jl.player.Player;
+// import javazoom.jl.player.Player;
 
 
 
@@ -35,7 +35,7 @@ public class InGame {
     int missAmount = 0;     // missAmount : miss总数
     
     // 
-    Player gamePlayer;      // gamePlayer : 音乐播放器
+    Player_me gamePlayer;      // gamePlayer : 音乐播放器
     Timer timer;            // timer : 定时器，完成实现逐帧绘制
     int perfectSoundIndex = 0;      // perfectSoundIndex : perfect音效数组下标，下同
     int goodSoundIndex = 0;        // goodSoundIndex : good音效数组下标
@@ -48,7 +48,7 @@ public class InGame {
 
 
 // ==================== 分割线 ====================
-// ==================== 下面是方法 ====================
+// ==================== 下面是方法 ======   ==============
 // ==================== 分割线 ====================
 
 
@@ -83,7 +83,7 @@ public class InGame {
             reader.close();
             in.close();
 
-            gamePlayer = new Player(new FileInputStream(new File(audioFilePath)));      // 用音频文件初始化gamePlayer
+            gamePlayer = new Player_me(new FileInputStream(new File(audioFilePath)));      // 用音频文件初始化gamePlayer
 
         } catch (Exception e) {
         }
@@ -113,13 +113,31 @@ public class InGame {
     }
 
     /** 
-    * @Title: suspend
-    * @Description: 游戏结束的操作
+    * @Title: suspend 
+    * @Description: 游戏暂停 
     * @return void  
     * @throws 
     */
+    public void suspend() {
+        timer.cancel();     // 取消定时器
+        gamePlayer.pause();     // 暂停播放音乐
+        PageController.win.removeKeyListener(hitListener);          // 移除hitListener监听器
+        PageController.win.addMouseListener(returnListener);        // 添加returnListener监听器
+    }
 
-
+    /** 
+    * @Title: continueGame 
+    * @Description: 游戏继续 
+    * @return void  
+    * @throws 
+    */
+    public void continueGame() {
+        timer = new Timer(true);        // 创建timer定时器
+        timer.scheduleAtFixedRate(new Drop(), 0, 10);       // 延迟0ms，每10ms执行一次Drop任务
+        gamePlayer.resume();      // 继续播放音乐
+        PageController.win.addKeyListener(hitListener);     // 给PageController.win添加监听器
+        PageController.win.removeMouseListener(returnListener);        // 移除returnListener监听器
+    }
 
     /** 
     * @Title: end
