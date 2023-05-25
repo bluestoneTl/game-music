@@ -9,10 +9,11 @@ public class PageController {
     /*   ret:返回标志位   */
     public static boolean ret= false;
     /*   按键   */
-    public static int keyCode1 = KeyEvent.VK_F;
+    public static int keyCode1 = KeyEvent.VK_F;         /* 四个音轨的按键 */
     public static int keyCode2 = KeyEvent.VK_G;
     public static int keyCode3 = KeyEvent.VK_H;
     public static int keyCode4 = KeyEvent.VK_J;
+    public static int keyCode_sus = KeyEvent.VK_ESCAPE;        /* 暂停键ESC */
     /*生成一个 select 对象*/
     static Select select=new Select();
     /*生成一个 setting 对象*/
