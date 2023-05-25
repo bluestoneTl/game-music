@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 
-public class Suspend {
+public class suspend {
     static JLabel jlabel= new JLabel(new ImageIcon("src/image/bt.png"));  /*暂停背景图片*/
 
     static JLabel back=new JLabel(new ImageIcon(""));   /*返回键图片*/
