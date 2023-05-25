@@ -113,6 +113,34 @@ public class InGame {
     }
 
     /** 
+    * @Title: suspend
+    * @Description: 游戏结束的操作
+    * @return void  
+    * @throws 
+    */
+
+
+
+    /** 
+    * @Title: end
+    * @Description: 游戏结束的操作
+    * @return void  
+    * @throws 
+    */
+    public void end() {
+        timer.cancel();     // 取消定时器
+        gamePlayer.close();     // 关闭音乐播放器
+        PageController.win.removeKeyListener(hitListener);          // 移除hitListener监听器
+        PageController.win.addMouseListener(returnListener);        // 添加returnListener监听器
+        try {
+            GameRes.resultbgm.play();       // 播放结果界面背景音乐
+        } catch (Exception e) {
+        }
+        result.resultPage(perfectAmount, goodAmount, missAmount, maxCombo);     // 展示结束页面
+    }
+
+
+    /** 
     * @ClassName: Drop 
     * @Description: 定时器执行的任务，逐帧绘制
     * @author Zhang Yuxuan
@@ -150,7 +178,7 @@ public class InGame {
                     track(x, 0);            // 绘制音符
                 }
                 else if (ci=='5') {
-                    gameend();      // 游戏结束
+                    end();      // 游戏结束
                     return;
                 }
                 else if (ci=='A') {
@@ -227,24 +255,6 @@ public class InGame {
     }
 
     /** 
-    * @Title: gameend
-    * @Description: 游戏结束的操作
-    * @return void  
-    * @throws 
-    */
-    public void gameend() {
-        timer.cancel();     // 取消定时器
-        gamePlayer.close();     // 关闭音乐播放器
-        PageController.win.removeKeyListener(hitListener);          // 移除hitListener监听器
-        PageController.win.addMouseListener(returnListener);        // 添加returnListener监听器
-        try {
-            GameRes.resultbgm.play();       // 播放结果界面背景音乐
-        } catch (Exception e) {
-        }
-        result.resultPage(perfectAmount, goodAmount, missAmount, maxCombo);     // 展示结束页面
-    }
-
-    /** 
     * @ClassName: HitListener 
     * @Description: 键盘监听器
     * @author Zhang Yuxuan
@@ -296,7 +306,9 @@ public class InGame {
             if (noteIndex == -1) {
                 return;
             }
-            if (noteY >= perfectUp && noteY <= perfectDown) {
+            // 判定note打击情况
+            // perfect打击
+            if (noteY >= perfectUp && noteY <= perfectDown) {       
                 notes[noteIndex].setVisible(false);
                 GameRes.pecfectIcon.setVisible(true);
                 GameRes.goodIcon.setVisible(false);
@@ -317,7 +329,9 @@ public class InGame {
                     maxCombo = combo;
                 }
                 perfectAmount++;
-            } else if ((noteY < perfectUp && noteY >= goodUp) || (noteY > perfectDown && noteY <= goodDown)) {
+            } 
+            // good打击
+            else if ((noteY < perfectUp && noteY >= goodUp) || (noteY > perfectDown && noteY <= goodDown)) {
                 notes[noteIndex].setVisible(false);
                 GameRes.pecfectIcon.setVisible(false);
                 GameRes.goodIcon.setVisible(true);
@@ -338,7 +352,9 @@ public class InGame {
                     maxCombo = combo;
                 }
                 goodAmount++;
-            } else if ((noteY < goodUp && noteY >= missUp) || (noteY > goodDown)) {
+            } 
+            // miss打击
+            else if ((noteY < goodUp && noteY >= missUp) || (noteY > goodDown)) {
                 notes[noteIndex].setVisible(false);
                 GameRes.pecfectIcon.setVisible(false);
                 GameRes.goodIcon.setVisible(false);
