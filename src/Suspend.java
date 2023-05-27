@@ -6,14 +6,14 @@ import java.awt.event.MouseListener;
 import javax.swing.*;
 
 
-public class suspend {
+public class Suspend {
     static JLabel jlabel= new JLabel(new ImageIcon("src/image/bt.png"));  /*暂停背景图片*/
 
     static JLabel back=new JLabel(new ImageIcon(""));   /*返回键图片*/
 
     static JLabel cont=new JLabel(new ImageIcon(""));   /*继续游戏键图片*/
 
-    public void suspendinit(){
+    public void Suspendinit(){
         PageController.win.getContentPane().removeAll();
         PageController.win.getContentPane().repaint();
 
