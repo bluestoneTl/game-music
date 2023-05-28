@@ -7,11 +7,11 @@ import javax.swing.*;
 
 
 public class Suspend {
-    static JLabel jlabel=new JLabel(new ImageIcon("src/resource/image/bt.png"));  /*暂停背景图片*/
+    static JLabel jlabel=new JLabel(new ImageIcon("src/resource/image/suspend.png"));  /*暂停背景图片*/
 
-    static JLabel back=new JLabel(new ImageIcon("src/resource/image/fig1.png"));   /*返回键图片*/
+    static JLabel back=new JLabel(new ImageIcon("src/resource/image/home.png"));   /*返回键图片*/
 
-    static JLabel cont=new JLabel(new ImageIcon("src/resource/image/bt.png"));   /*继续游戏键图片*/
+    static JLabel cont=new JLabel(new ImageIcon("src/resource/image/continue.png"));   /*继续游戏键图片*/
 
 
 
@@ -26,20 +26,20 @@ public class Suspend {
 //        back.addKeyListener(hitListener);
         //PageController.win.add(back);
         PageController.win.getLayeredPane().add(back, new Integer(Integer.MAX_VALUE));
-        back.setBounds(80, 670, 130, 39);
+        back.setBounds(425, 550, 221, 190);
 
 //        cont.setVisible(false);
         cont.setVisible(true);
         cont.addMouseListener(r_cont);
     //    PageController.win.add(cont);
         PageController.win.getLayeredPane().add(cont, new Integer(Integer.MAX_VALUE));
-        cont.setBounds(500, 670, 130, 39);
+        cont.setBounds(675, 550, 221, 129);
 
 //        jlabel.setVisible(false);
         jlabel.setVisible(true);
         //    PageController.win.add(jlabel);
         PageController.win.getLayeredPane().add(jlabel, new Integer(Integer.MAX_VALUE));
-        jlabel.setBounds(250, 250, 130, 39);
+        jlabel.setBounds(350, 50, 600, 500);
         //PageController.win.getLayeredPane().remove(jlabel);
     }
 //    HitListener hitListener = new HitListener();
