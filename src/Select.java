@@ -13,6 +13,8 @@ public class Select {
 
     /*返回按钮*/
     JLabel bt = new JLabel(new ImageIcon("src/resource/image/bt.png"));
+
+
     /*返回按钮监听器*/
     ReturnListener returnListener = new ReturnListener();
     /*页面加载*/
@@ -38,18 +40,21 @@ public class Select {
         cover3.setVisible(true);
         cover3.addMouseListener(new selectListener());
 
-        b.setVisible(false);
-        PageController.win.add(b);
-        b.setBounds(0, 0, 1280, 800);
-        b.setVisible(true);
+
 
 
         /*给返回按钮添加鼠标监听器，设置大小和位置*/
         bt.setVisible(false);
         bt.addMouseListener(returnListener);
         PageController.win.add(bt);
-        bt.setBounds(80, 670, 130, 39);
+        bt.setBounds(145, 650, 184, 168);
         bt.setVisible(true);
+
+
+        b.setVisible(false);
+        PageController.win.add(b);
+        b.setBounds(0, 0, 1280, 800);
+        b.setVisible(true);
     }
 
     /*鼠标检测器*/
