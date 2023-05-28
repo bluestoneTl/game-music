@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
@@ -22,11 +23,16 @@ public class PageController {
     static Help help=new Help();
     /*默认构造函数*/
     public PageController() {
-        win.setSize(1280, 835);
+        win.setSize(1280, 800);
         win.setResizable(false);
         win.setVisible(true);
         win.setLayout(null);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+        Toolkit tool=win.getToolkit();
+        Image icon = tool.getImage("src/resource/image/logo.png");
+        win.setIconImage(icon);
     }
 
     public void run() {
