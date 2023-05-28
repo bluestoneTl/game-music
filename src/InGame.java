@@ -4,8 +4,8 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.Timer;
 import java.util.TimerTask;
-//import javazoom.jl.player.Player;
-
+import javazoom.jl.player.Player;
+import javazoom.jl.player.advanced.AdvancedPlayer;
 
 
 public class InGame {
@@ -38,8 +38,10 @@ public class InGame {
     int goodAmount = 0;     // goodAmount : good总数
     int missAmount = 0;     // missAmount : miss总数
     
-    // 
+
     Player_me gamePlayer;      // gamePlayer : 音乐播放器
+    // Player gamePlayer;
+    // private AdvancedPlayer gamePlayer;
     Timer timer;            // timer : 定时器，完成实现逐帧绘制
     int perfectSoundIndex = 0;      // perfectSoundIndex : perfect音效数组下标，下同
     int goodSoundIndex = 0;        // goodSoundIndex : good音效数组下标
@@ -48,7 +50,7 @@ public class InGame {
     
     //
     Result result = new Result();       // result : 结果类
-
+    Thread music;
 
 
 // ==================== 分割线 ====================
@@ -87,8 +89,10 @@ public class InGame {
             reader.close();
             in.close();
 
-            gamePlayer = new Player_me(new FileInputStream(new File(audioFilePath)));      // 用音频文件初始化gamePlayer
-
+            // gamePlayer = new Player_me(new FileInputStream(new File(audioFilePath)));      // 用音频文件初始化gamePlayer
+            gamePlayer = new Player_me(audioFilePath);      // 用音频文件初始化gamePlayer
+            // gamePlayer = new Player(new FileInputStream(new File(audioFilePath)));
+            // gamePlayer = new AdvancedPlayer(new FileInputStream(new File(audioFilePath)));
         } catch (Exception e) {
         }
     }
@@ -102,7 +106,7 @@ public class InGame {
     */
     public void start() {
         PageController.win.addKeyListener(hitListener);     // 给PageController.win添加监听器
-        Thread music = new Thread() {            // 创建music线程，用于播放音乐
+        music = new Thread() {            // 创建music线程，用于播放音乐
             public void run() {
                 try {
                     gamePlayer.play();      // gamePlayer播放音乐
@@ -123,10 +127,12 @@ public class InGame {
     * @throws 
     */
     public void suspend() {
+        music.suspend();
         timer.cancel();     // 取消定时器
-        gamePlayer.pause();     // 暂停播放音乐
-        PageController.win.removeKeyListener(hitListener);          // 移除hitListener监听器
-        PageController.win.addMouseListener(returnListener);        // 添加returnListener监听器
+        timer=null;
+
+//        gamePlayer.pause();     // 暂停播放音乐
+        PageController.win.removeKeyListener(hitListener);          // 移除键盘监听
     }
 
     /** 
@@ -136,15 +142,15 @@ public class InGame {
     * @throws 
     */
     public void continueGame() {
+        music.resume();
         timer = new Timer(true);        // 创建timer定时器
         timer.scheduleAtFixedRate(new Drop(), 0, 10);       // 延迟0ms，每10ms执行一次Drop任务
-        try {
-            gamePlayer.resume();      // 继续播放音乐
-        } catch (JavaLayerException e) {
-            e.printStackTrace();
-        }
-        PageController.win.addKeyListener(hitListener);     // 给PageController.win添加监听器
-        PageController.win.removeMouseListener(returnListener);        // 移除returnListener监听器
+//        try {
+//            gamePlayer.resume();      // 继续播放音乐
+//        } catch (JavaLayerException e) {
+//            e.printStackTrace();
+//        }
+        PageController.win.addKeyListener(hitListener);     // 给PageController.win添加键盘监听器
     }
 
     /** 
@@ -324,8 +330,8 @@ public class InGame {
                 noteX = x4;
             } else if (keyCode == PageController.keyCode_sus) {
                 Suspend susp = new Suspend();
-                suspend();
                 susp.Suspendinit();
+                suspend();
             }
             for (int i = 0; i < 20; i++) {
                 if (notes[i].x == noteX && notes[i].isVisible() && notes[i].y > noteY) {

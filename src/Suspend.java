@@ -7,7 +7,7 @@ import javax.swing.*;
 
 
 public class Suspend {
-    static JLabel jlabel=new JLabel(new ImageIcon("src/resource/image/bt    .png"));  /*暂停背景图片*/
+    static JLabel jlabel=new JLabel(new ImageIcon("src/resource/image/bt.png"));  /*暂停背景图片*/
 
     static JLabel back=new JLabel(new ImageIcon("src/resource/image/fig1.png"));   /*返回键图片*/
 
@@ -17,73 +17,75 @@ public class Suspend {
 
     public void Suspendinit(){
          // PageController.win.getContentPane().removeAll();
-        //PageController.win.getContentPane().repaint();
+        // PageController.win.getContentPane().repaint();
 
 
-        back.setVisible(false);
+//        back.setVisible(false);
         back.setVisible(true);
-        back.addMouseListener(returnListener);
+        back.addMouseListener(r_back);
+//        back.addKeyListener(hitListener);
         //PageController.win.add(back);
         PageController.win.getLayeredPane().add(back, new Integer(Integer.MAX_VALUE));
         back.setBounds(80, 670, 130, 39);
 
-        cont.setVisible(false);
+//        cont.setVisible(false);
         cont.setVisible(true);
-        cont.addMouseListener(continueListener);
+        cont.addMouseListener(r_cont);
     //    PageController.win.add(cont);
         PageController.win.getLayeredPane().add(cont, new Integer(Integer.MAX_VALUE));
         cont.setBounds(500, 670, 130, 39);
 
-        jlabel.setVisible(false);
+//        jlabel.setVisible(false);
         jlabel.setVisible(true);
         //    PageController.win.add(jlabel);
         PageController.win.getLayeredPane().add(jlabel, new Integer(Integer.MAX_VALUE));
         jlabel.setBounds(250, 250, 130, 39);
         //PageController.win.getLayeredPane().remove(jlabel);
     }
-    HitListener hitListener = new HitListener();
-    ReturnListener returnListener = new ReturnListener();
-    ContinueListener continueListener = new ContinueListener();
+//    HitListener hitListener = new HitListener();
+    ReturnListener r_back = new ReturnListener();
+    ContinueListener r_cont = new ContinueListener();
 
     /*键盘检测器*/
-    class HitListener implements KeyListener {
-        @Override
-        public void keyTyped(KeyEvent e) {
-        }
-        /* 监视esc键被按下,继续游戏 */
-        @Override
-        public void keyPressed(KeyEvent e) {
-            /** if (e.getKeyCode()==KeyEvent.VK_ESCAPE){
-             cont.setVisible(true);
-             back.setVisible(true);
-             jlabel.setVisible(true);}
-             暂停线程添加 **/
-
-            if (e.getKeyCode()==KeyEvent.VK_C){
-                /* 线程继续添加 */
-                Select.inGame.continueGame();
-                PageController.win.removeKeyListener(hitListener);
-                back.removeMouseListener(returnListener);
-                back.setVisible(false);cont.setVisible(false);jlabel.setVisible(false);
-            }
-        }
-        @Override
-        public void keyReleased(KeyEvent e) {
-        }
-    }
+//    class HitListener implements KeyListener {
+//        @Override
+//        public void keyTyped(KeyEvent e) {
+//        }
+//        /* 监视esc键被按下,继续游戏 */
+//        @Override
+//        public void keyPressed(KeyEvent e) {
+//            /** if (e.getKeyCode()==KeyEvent.VK_ESCAPE){
+//             cont.setVisible(true);
+//             back.setVisible(true);
+//             jlabel.setVisible(true);}
+//             暂停线程添加 **/
+//
+//            if (e.getKeyCode()==KeyEvent.VK_C){
+//                /* 线程继续添加 */
+//                Select.inGame.continueGame();
+//                PageController.win.removeKeyListener(hitListener);
+//                back.removeMouseListener(returnListener);
+//                back.setVisible(false);cont.setVisible(false);jlabel.setVisible(false);
+//            }
+//        }
+//        @Override
+//        public void keyReleased(KeyEvent e) {
+//        }
+//    }
 
     /*鼠标检测器*/
     class ReturnListener implements MouseListener {
         /* 点击返回 */
         @Override
         public void mouseClicked(MouseEvent e) {
-            Select.inGame.end();
             PageController.ret = true;
-            PageController.win.removeKeyListener(hitListener);
-            back.removeMouseListener(returnListener);
+//            PageController.win.removeKeyListener(hitListener);
+            back.removeMouseListener(r_back);
+            cont.removeMouseListener(r_cont);
             PageController.win.getLayeredPane().remove(jlabel);
             PageController.win.getLayeredPane().remove(cont);
             PageController.win.getLayeredPane().remove(back);
+            Select.inGame.end();
         }
         @Override
         public void mousePressed(MouseEvent e) {
@@ -108,16 +110,17 @@ public class Suspend {
         @Override
         public void mousePressed(MouseEvent e) {
             /* 线程继续添加 */
-            Select.inGame.continueGame();
-            PageController.win.removeKeyListener(hitListener);
-            back.removeMouseListener(returnListener);
+//            PageController.win.removeKeyListener(hitListener);
+            back.removeMouseListener(r_back);
+            cont.removeMouseListener(r_cont);
             PageController.win.getLayeredPane().remove(jlabel);
             PageController.win.getLayeredPane().remove(cont);
             PageController.win.getLayeredPane().remove(back);
             PageController.win.repaint();
-            back.setVisible(false);
-            cont.setVisible(false);
-            jlabel.setVisible(false);
+//            back.setVisible(false);
+//            cont.setVisible(false);
+//            jlabel.setVisible(false);
+            Select.inGame.continueGame();
         }
         @Override
         public void mouseReleased(MouseEvent e) {
