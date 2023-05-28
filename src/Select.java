@@ -19,17 +19,32 @@ public class Select {
     public void selectInit() {
         PageController.win.getContentPane().removeAll();
         PageController.win.getContentPane().repaint();
+
         Cover cover1 = new Cover("START-DASH!!");
         PageController.win.getContentPane().add(cover1);
         cover1.setLocation(100, 120);
         cover1.setVisible(true);
         cover1.addMouseListener(new selectListener());
 
+        Cover cover2 = new Cover("Tik-Tok");
+        PageController.win.getContentPane().add(cover2);
+        cover2.setLocation(100, 320);
+        cover2.setVisible(true);
+        cover2.addMouseListener(new selectListener());
+
+        Cover cover3 = new Cover("One-Last-Kiss");
+        PageController.win.getContentPane().add(cover3);
+        cover3.setLocation(100, 520);
+        cover3.setVisible(true);
+        cover3.addMouseListener(new selectListener());
+
         b.setVisible(false);
         PageController.win.add(b);
         b.setBounds(0, 0, 1280, 800);
         b.setVisible(true);
-/*给返回按钮添加鼠标监听器，设置大小和位置*/
+
+
+        /*给返回按钮添加鼠标监听器，设置大小和位置*/
         bt.setVisible(false);
         bt.addMouseListener(returnListener);
         PageController.win.add(bt);

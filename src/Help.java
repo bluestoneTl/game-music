@@ -10,7 +10,7 @@ public class Help {
     JLabel h = new JLabel(new ImageIcon("src/resource/image/help.png"));
 
 
-   public static JLabel bt = new JLabel();
+    public static JLabel bt = new JLabel();
 
 
     ReturnListener returnListener = new ReturnListener();
@@ -21,16 +21,16 @@ public class Help {
         PageController.win.getContentPane().repaint();
 
         bt.setVisible(false);
-        bt.addMouseListener(returnListener);
-        bt=new JLabel(new ImageIcon("src/resource/image/button.png"));
+
+        bt=new JLabel(new ImageIcon(""));
         PageController.win.repaint();
         PageController.win.add(bt);
         bt.setBounds(1057, 530, 184, 68);
         bt.setVisible(true);
-
+        bt.addMouseListener(returnListener);
         h.setVisible(false);
         PageController.win.add(h);
-        h.setBounds(0, 0, 640, 800);
+        h.setBounds(0, 0, 1280, 800);
         h.setVisible(true);
 
     }
@@ -41,8 +41,12 @@ public class Help {
 
         @Override
         public void mouseClicked(MouseEvent e) {
+            PageController.win.getContentPane().removeAll(); // 清除当前页面的组件
+            PageController.page = 0; // 切换到菜单页面的页面编号
             PageController.ret = true;
-            bt.removeMouseListener(returnListener);
+
+
+
         }
 
         @Override

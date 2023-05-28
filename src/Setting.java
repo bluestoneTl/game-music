@@ -6,12 +6,13 @@ import java.awt.event.MouseListener;
 
 import javax.swing.*;
 import javax.sound.sampled.*;
+import javax.swing.ImageIcon;
 
 public class Setting {
 
-    private static final float DEFAULT_VOLUME = 0.5f; // 默认音量
+    private static final float DEFAULT_VOLUME = 0.5f; // 榛樿闊抽噺
     private int volume_level=2;
-    private float volume; // 当前音量
+    private float volume; // 褰撳墠闊抽噺
 
     JLabel sbt1= new JLabel(new ImageIcon("src/resource/image/button.png"));
     JLabel sbt2= new JLabel(new ImageIcon("src/resource/image/button.png"));
@@ -29,14 +30,16 @@ public class Setting {
     JLabel k4 = new JLabel("" + (char) PageController.keyCode4, JLabel.CENTER);
 
     JLabel arrows1 =new JLabel(new ImageIcon("src/resource/image/arrows.png"));
+
+
     JLabel arrows2 =new JLabel(new ImageIcon("src/resource/image/arrows.png"));
     JLabel arrows3 =new JLabel(new ImageIcon("src/resource/image/arrows.png"));
     JLabel arrows4 =new JLabel(new ImageIcon("src/resource/image/arrows.png"));
 
-    JLabel rail1 =new JLabel(new ImageIcon("src/resource/image/轨道点击功能.png"));
-    JLabel rail2 =new JLabel(new ImageIcon("src/resource/image/轨道点击功能.png"));
-    JLabel rail3 =new JLabel(new ImageIcon("src/resource/image/轨道点击功能.png"));
-    JLabel rail4 =new JLabel(new ImageIcon("src/resource/image/轨道点击功能.png"));
+    JLabel rail1 =new JLabel(new ImageIcon("src/resource/image/rail1.png"));
+    JLabel rail2 =new JLabel(new ImageIcon("src/resource/image/rail1.png"));
+    JLabel rail3 =new JLabel(new ImageIcon("src/resource/image/rail1.png"));
+    JLabel rail4 =new JLabel(new ImageIcon("src/resource/image/rail1.png"));
 
 
 
@@ -70,10 +73,10 @@ public class Setting {
         PageController.win.add(sbt1);
         PageController.win.add(sbt2);
         PageController.win.getContentPane().repaint();
-        k1.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 60));
-        k2.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 60));
-        k3.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 60));
-        k4.setFont(new Font("寰蒋闆呴粦", Font.PLAIN, 60));
+        k1.setFont(new Font("瀵邦喛钂嬮梿鍛寸拨", Font.PLAIN, 60));
+        k2.setFont(new Font("瀵邦喛钂嬮梿鍛寸拨", Font.PLAIN, 60));
+        k3.setFont(new Font("瀵邦喛钂嬮梿鍛寸拨", Font.PLAIN, 60));
+        k4.setFont(new Font("瀵邦喛钂嬮梿鍛寸拨", Font.PLAIN, 60));
 
         k1.setVisible(false);
         k2.setVisible(false);
@@ -96,31 +99,30 @@ public class Setting {
         k4.setVisible(true);
 
 
-        PageController.win.add(arrows1);
-        PageController.win.add(arrows2);
-        PageController.win.add(arrows3);
-        PageController.win.add(arrows4);
 
-        arrows1.setBounds(629, 504, 80, 80);
-        arrows2.setBounds(727, 504, 80, 80);
-        arrows3.setBounds(825, 504, 80, 80);
-        arrows4.setBounds(923, 504, 80, 80);
+
+        arrows1.setBounds(629, 684, 80, 80);
+        arrows2.setBounds(727, 684, 80, 80);
+        arrows3.setBounds(825, 684, 80, 80);
+        arrows4.setBounds(923, 684, 80, 80);
 
         arrows1.setVisible(true);
         arrows2.setVisible(false);
         arrows3.setVisible(false);
         arrows4.setVisible(false);
 
+        PageController.win.add(arrows1);
+        PageController.win.add(arrows2);
+        PageController.win.add(arrows3);
+        PageController.win.add(arrows4);
 
-        PageController.win.add(rail1);
-        PageController.win.add(rail2);
-        PageController.win.add(rail3);
-        PageController.win.add(rail4);
 
-        rail1.setBounds(629, 404, 80, 800);
-        rail2.setBounds(727, 404, 80, 800);
-        rail3.setBounds(825, 404, 80, 800);
-        rail4.setBounds(923, 404, 80, 800);
+
+
+        rail1.setBounds(629, 0,80, 700);
+        rail2.setBounds(727, 0, 80, 700);
+        rail3.setBounds(825, 0, 80, 700);
+        rail4.setBounds(923, 0, 80, 700);
 
         rail1.addMouseListener(railListener1 );
         rail2.addMouseListener(railListener2);
@@ -132,6 +134,11 @@ public class Setting {
         rail3.setVisible(true);
         rail4.setVisible(true);
 
+
+        PageController.win.add(rail1);
+        PageController.win.add(rail2);
+        PageController.win.add(rail3);
+        PageController.win.add(rail4);
 
 
         bt.setVisible(false);
@@ -260,11 +267,11 @@ public class Setting {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            PageController.ret = true;//返回主页面
+            PageController.ret = true;//杩斿洖涓婚〉闈�
             PageController.win.removeKeyListener(hitListener);
-            bt.removeMouseListener(returnListener);//移除返回按钮监听器
-            sbt1.removeMouseListener(soundListener1);//移除音量+按钮监听器
-            sbt2.removeMouseListener(soundListener2);//移除音量-按钮监听器
+            bt.removeMouseListener(returnListener);//绉婚櫎杩斿洖鎸夐挳鐩戝惉鍣�
+            sbt1.removeMouseListener(soundListener1);//绉婚櫎闊抽噺+鎸夐挳鐩戝惉鍣�
+            sbt2.removeMouseListener(soundListener2);//绉婚櫎闊抽噺-鎸夐挳鐩戝惉鍣�
 
         }
 
@@ -292,7 +299,7 @@ public class Setting {
         @Override
         public void mouseClicked(MouseEvent e) {
 
-index=1;
+            index=1;
         }
 
         @Override
@@ -319,7 +326,7 @@ index=1;
         @Override
         public void mouseClicked(MouseEvent e) {
 
-index=2;
+            index=2;
         }
 
         @Override
@@ -345,7 +352,7 @@ index=2;
 
         @Override
         public void mouseClicked(MouseEvent e) {
-index=3;
+            index=3;
 
         }
 
@@ -373,7 +380,7 @@ index=3;
         @Override
         public void mouseClicked(MouseEvent e) {
 
-index=4;
+            index=4;
         }
 
         @Override
