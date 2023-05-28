@@ -7,7 +7,7 @@ import javax.swing.*;
 
 
 public class Suspend {
-    static JLabel jlabel=new JLabel(new ImageIcon("src/resource/image/bt.png"));  /*暂停背景图片*/
+    static JLabel jlabel=new JLabel(new ImageIcon("src/resource/image/bt    .png"));  /*暂停背景图片*/
 
     static JLabel back=new JLabel(new ImageIcon("src/resource/image/fig1.png"));   /*返回键图片*/
 
@@ -77,6 +77,7 @@ public class Suspend {
         /* 点击返回 */
         @Override
         public void mouseClicked(MouseEvent e) {
+            Select.inGame.end();
             PageController.ret = true;
             PageController.win.removeKeyListener(hitListener);
             back.removeMouseListener(returnListener);
