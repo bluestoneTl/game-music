@@ -7,27 +7,28 @@ import javax.swing.*;
 
 
 public class Suspend {
-    static JLabel jlabel= new JLabel(new ImageIcon("src/image/bt.png"));  /*暂停背景图片*/
+    static JLabel jlabel=new JLabel(new ImageIcon("./resource/image/bt.png"));  /*暂停背景图片*/
 
     static JLabel back=new JLabel(new ImageIcon(""));   /*返回键图片*/
 
     static JLabel cont=new JLabel(new ImageIcon(""));   /*继续游戏键图片*/
 
     public void Suspendinit(){
-        PageController.win.getContentPane().removeAll();
-        PageController.win.getContentPane().repaint();
 
         back.setVisible(false);
+        back.setVisible(true);
         back.addMouseListener(returnListener);
         PageController.win.add(back);
         back.setBounds(80, 670, 130, 39);
 
         cont.setVisible(false);
+        cont.setVisible(true);
         cont.addMouseListener(continueListener);
         PageController.win.add(cont);
         cont.setBounds(500, 670, 130, 39);
 
         jlabel.setVisible(false);
+        jlabel.setVisible(true);
         PageController.win.add(jlabel);
         jlabel.setBounds(250, 250, 130, 39);
 
@@ -52,8 +53,11 @@ public class Suspend {
 
             if (e.getKeyCode()==KeyEvent.VK_ESCAPE){
                 /* 线程继续添加 */
+                Select.inGame.continueGame();
                 PageController.win.removeKeyListener(hitListener);
                 back.removeMouseListener(returnListener);
+                back.setVisible(false);cont.setVisible(false);jlabel.setVisible(false);
+
             }
         }
         @Override
@@ -67,6 +71,7 @@ public class Suspend {
         @Override
         public void mouseClicked(MouseEvent e) {
             PageController.ret = true;
+
             PageController.win.removeKeyListener(hitListener);
             back.removeMouseListener(returnListener);
         }

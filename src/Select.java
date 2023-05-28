@@ -6,7 +6,7 @@ import javax.swing.JLabel;
 
 public class Select {
     /*生成一个 Ingame 对象*/
-   InGame inGame = new InGame();
+    public static InGame inGame = new InGame();
 
     /*生成一个背景图片*/
     JLabel b = new JLabel(new ImageIcon("src/resource/image/select.png"));

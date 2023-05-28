@@ -1,23 +1,37 @@
 // 继承自javazoom.jl.player.Player，实现暂停和恢复功能
+import java.io.FileInputStream;
 import java.io.InputStream;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
-public class Player_me extends Player {
+public class Player_me {
     private boolean paused;             // 暂停标志位
-    private long pausePosition;         // 暂停位置
+    private Integer pausePosition;         // 暂停位置
+    private InputStream target;
+    private Player player;
 
     public Player_me(InputStream stream) throws JavaLayerException {
-        super(stream);
+        target = stream;
+        player = new Player(target);
         paused = false;
         pausePosition = 0;
     }
 
+    // 播放
+    public void play() throws JavaLayerException {
+        player.play();
+        pausePosition = 0;
+    }
+    // 播放
+    public void play(Integer frames) throws JavaLayerException {
+        player.play(frames);
+    }
+
     // 暂停
     public void pause() {
-        if (isPlaying()) {
-            pausePosition = getPosition();
-            close();
+        if (!paused) {
+            pausePosition = player.getPosition();
+            player.close();
             paused = true;
         }
     }
@@ -25,20 +39,17 @@ public class Player_me extends Player {
     // 恢复
     public void resume() throws JavaLayerException {
         if (paused) {
-            InputStream inputStream = new ByteArrayInputStream(super.getAudio().getBuffer());
-            super.open(inputStream);
-            super.play(pausePosition, Integer.MAX_VALUE);
+            player = new Player(target);
+            player.play(pausePosition);
             paused = false;
         }
     }
 
-    // 刷新所有状态，从头开始播放
-    public void restart() throws JavaLayerException {
-        stop();
-        InputStream inputStream = new ByteArrayInputStream(super.getAudio().getBuffer());
-        super.open(inputStream);
-        super.play();
+    // 关闭
+    public void close() {
         paused = false;
         pausePosition = 0;
+        player.close();
     }
+
 }

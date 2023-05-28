@@ -1,3 +1,5 @@
+import javazoom.jl.decoder.JavaLayerException;
+
 import java.awt.event.*;
 import java.io.*;
 import java.util.Timer;
@@ -7,6 +9,8 @@ import java.util.TimerTask;
 
 
 public class InGame {
+    Suspend susp = new Suspend();
+
     // 轨道1 2 3 4 的坐标
     int[] xi = { 0, 409, 530, 651, 772 };
     int x1 = 409;
@@ -134,7 +138,11 @@ public class InGame {
     public void continueGame() {
         timer = new Timer(true);        // 创建timer定时器
         timer.scheduleAtFixedRate(new Drop(), 0, 10);       // 延迟0ms，每10ms执行一次Drop任务
-        gamePlayer.resume();      // 继续播放音乐
+        try {
+            gamePlayer.resume();      // 继续播放音乐
+        } catch (JavaLayerException e) {
+            e.printStackTrace();
+        }
         PageController.win.addKeyListener(hitListener);     // 给PageController.win添加监听器
         PageController.win.removeMouseListener(returnListener);        // 移除returnListener监听器
     }
@@ -314,6 +322,9 @@ public class InGame {
                 noteX = x3;
             } else if (keyCode == PageController.keyCode4) {
                 noteX = x4;
+            } else if (keyCode == PageController.keyCode_sus) {
+                suspend();
+                susp.Suspendinit();
             }
             for (int i = 0; i < 20; i++) {
                 if (notes[i].x == noteX && notes[i].isVisible() && notes[i].y > noteY) {
