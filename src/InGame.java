@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 
 public class InGame {
-    Suspend susp = new Suspend();
+
 
     // 轨道1 2 3 4 的坐标
     int[] xi = { 0, 409, 530, 651, 772 };
@@ -323,6 +323,7 @@ public class InGame {
             } else if (keyCode == PageController.keyCode4) {
                 noteX = x4;
             } else if (keyCode == PageController.keyCode_sus) {
+                Suspend susp = new Suspend();
                 suspend();
                 susp.Suspendinit();
             }
