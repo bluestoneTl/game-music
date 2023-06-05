@@ -41,13 +41,7 @@ public class Help {
 
     class ReturnListener implements MouseListener {
 
-        /*
-         * Title: mouseClicked Description: 点击返回
-         *
-         * @param e
-         *
-         * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-         */
+
         @Override
         public void mouseClicked(MouseEvent e) {
             PageController.ret = true;

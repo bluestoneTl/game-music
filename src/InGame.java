@@ -59,14 +59,7 @@ public class InGame {
 
 
 
-    /** 
-    * @Title: inGameInit 
-    * @Description: 设置文件路径
-    * @param @param audioFilePath 音频文件
-    * @param @param scoreFilePath 文本文件
-    * @return void  
-    * @throws 
-    */
+
     public void inGameInit(String audioFilePath, String scoreFilePath) {
         noteIndex = 0;          // note组件数组下标
         next = 0;               // next : 谱面内容下标
@@ -97,13 +90,7 @@ public class InGame {
         }
     }
 
-    /** 
-    * @Title: start 
-    * @Description: 加载资源，开始播放音乐、绘制图像
-    * @param  
-    * @return void  
-    * @throws 
-    */
+
     public void start() {
         PageController.win.addKeyListener(hitListener);     // 给PageController.win添加监听器
         music = new Thread() {            // 创建music线程，用于播放音乐
@@ -120,12 +107,7 @@ public class InGame {
         timer.scheduleAtFixedRate(new Drop(), 0, 10);       // 延迟0ms，每10ms执行一次Drop任务
     }
 
-    /** 
-    * @Title: suspend 
-    * @Description: 游戏暂停 
-    * @return void  
-    * @throws 
-    */
+
     public void suspend() {
         music.suspend();
         timer.cancel();     // 取消定时器
@@ -135,12 +117,7 @@ public class InGame {
         PageController.win.removeKeyListener(hitListener);          // 移除键盘监听
     }
 
-    /** 
-    * @Title: continueGame 
-    * @Description: 游戏继续 
-    * @return void  
-    * @throws 
-    */
+
     public void continueGame() {
         music.resume();
         timer = new Timer(true);        // 创建timer定时器
@@ -153,12 +130,7 @@ public class InGame {
         PageController.win.addKeyListener(hitListener);     // 给PageController.win添加键盘监听器
     }
 
-    /** 
-    * @Title: end
-    * @Description: 游戏结束的操作
-    * @return void  
-    * @throws 
-    */
+
     public void end() {
         timer.cancel();     // 取消定时器
         gamePlayer.close();     // 关闭音乐播放器
@@ -172,20 +144,8 @@ public class InGame {
     }
 
 
-    /** 
-    * @ClassName: Drop 
-    * @Description: 定时器执行的任务，逐帧绘制
-    * @author Zhang Yuxuan
-    * @date 2019年6月5日 下午6:38:06 
-    *  
-    */
+
     class Drop extends TimerTask {
-        /*
-        * Title: run
-        *Description: TimerTask任务内容
-        * @see java.util.TimerTask#run() 
-        */
-        @SuppressWarnings("deprecation")
         @Override
         public void run() {
             if (speed == 0) {
@@ -267,14 +227,7 @@ public class InGame {
         }
     }
 
-    /** 
-    * @Title: track
-    * @Description: 加载轨道
-    * @param x 轨道x坐标
-    * @param y 轨道y坐标    
-    * @return void  
-    * @throws 
-    */
+
     public void track(int x, int y) {
         notes[noteIndex].x = x;
         notes[noteIndex].y = y;
@@ -286,13 +239,7 @@ public class InGame {
         }
     }
 
-    /** 
-    * @ClassName: HitListener 
-    * @Description: 键盘监听器
-    * @author Zhang Yuxuan
-    * @date 2019年6月5日 下午6:40:39 
-    *  
-    */
+
     class HitListener implements KeyListener {
 
         @Override
@@ -307,13 +254,7 @@ public class InGame {
             
         }
 
-        /*
-        * Title: keyPressed
-        * Description: 响应按键事件，判定note打击情况
-        * @param e 
-        * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent) 
-        */
-        @SuppressWarnings("deprecation")
+
         @Override
         public void keyPressed(KeyEvent e) {
             int noteIndex = -1;
@@ -408,21 +349,10 @@ public class InGame {
 
     }
     
-    /** 
-    * @ClassName: ReturnListener 
-    * @Description: 鼠标监视器
-    * @author Zhang Yuxuan
-    * @date 2019年6月8日 下午8:17:27 
-    *  
-    */
+
     class ReturnListener implements MouseListener {
 
-        /*
-        * Title: mouseClicked
-        *Description: 点击返回
-        * @param e 
-        * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent) 
-        */
+
         @Override
         public void mouseClicked(MouseEvent e) {
             PageController.ret = true;

@@ -5,13 +5,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.*;
-/**
- * @ClassName: Setting
- * @Description: 键位设置
- * @author zmx
- * @date 2019年6月8日 下午9:07:36
- *
- */
 public class Setting {
     /**
      * @Fields set : 背景图片
@@ -41,28 +34,16 @@ public class Setting {
     JLabel rail3 =new JLabel(new ImageIcon("src/resource/image/rail1.png"));
     JLabel rail4 =new JLabel(new ImageIcon("src/resource/image/rail1.png"));
 
-    /**
-     * @Fields index : 按键下标
-     */
+
     int index = 1;
 
-    /**
-     * @Fields hitListener : 监视器
-     */
+
     HitListener hitListener = new HitListener();
 
-    /**
-     * @Fields returnListener : 监视器
-     */
+
     ReturnListener returnListener = new ReturnListener();
 
-    /**
-     * @Title: setInit
-     * @Description: 初始化资源
-     * @param
-     * @return void
-     * @throws
-     */
+
     public void setInit() {
         index = 1;
 
@@ -157,13 +138,7 @@ public class Setting {
         set.setVisible(true);
     }
 
-    /**
-     * @ClassName: HitListener
-     * @Description: 键盘监视器
-     * @author zmx
-     * @date 2019年6月8日 下午9:08:53
-     *
-     */
+
     class HitListener implements KeyListener {
 
         @Override
@@ -324,34 +299,11 @@ public class Setting {
         public void mouseExited(MouseEvent e) {
         }
 
-
-
-
-
-
-
-
-
-
-
     }
 
-    /**
-     * @ClassName: ReturnListener
-     * @Description: 鼠标监视器
-     * @author zmx
-     * @date 2019年6月8日 下午8:18:31
-     *
-     */
+
     class ReturnListener implements MouseListener {
 
-        /*
-         * Title: mouseClicked Description: 点击返回
-         *
-         * @param e
-         *
-         * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-         */
         @Override
         public void mouseClicked(MouseEvent e) {
             PageController.ret = true;

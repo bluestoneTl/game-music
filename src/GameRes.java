@@ -23,11 +23,7 @@ public class GameRes {
     //结算界面bgm
     public static AudioClip resultbgm;
    
-     //Title: load
-     //Description: 向主窗口中添加相应图片资源、加载音效文件以开始游戏
-     //param @param notes 需要添加的note
-     //return void
-     //throw
+
    
     public static void load(Note[] notes) {
         try {
